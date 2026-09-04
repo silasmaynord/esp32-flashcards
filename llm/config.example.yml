@@ -1,0 +1,71 @@
+# Ollama Configuration
+# This file configures the connection to your locally-hosted Ollama instance
+# Copy this file to config.yml and update with your settings
+
+ollama:
+  # Host and port where Ollama is running
+  # For Proxmox LXC container, use the container's IP address
+  host: http://localhost:11434
+  
+  # Model to use for generation
+  # Common options: mistral, llama2, neural-chat, openchat, etc.
+  model: mistral
+  
+  # Request timeout in seconds
+  timeout: 300
+  
+  # Temperature controls randomness (0.0 = deterministic, 1.0 = very random)
+  # Use lower values (0.3-0.5) for consistent card enhancement
+  temperature: 0.7
+  
+  # Top-p (nucleus sampling) parameter
+  # Recommended: 0.9 for balanced output
+  top_p: 0.9
+  
+  # Number of retries on failure
+  retries: 3
+  
+  # Delay between retries (seconds)
+  retry_delay: 2
+
+# OpenWebUI Configuration (optional)
+openwebui:
+  # Enable/disable OpenWebUI integration
+  enabled: false
+  
+  # OpenWebUI host and port
+  host: http://localhost:8080
+  
+  # API key if required
+  api_key: null
+
+# Flashcard Enhancement Settings
+enhancement:
+  # Whether to enhance flashcards using LLM
+  enabled: true
+  
+  # Batch size for processing (process N cards before a pause)
+  batch_size: 5
+  
+  # Whether to assess difficulty
+  assess_difficulty: true
+  
+  # Whether to categorize cards
+  auto_categorize: true
+  
+  # Whether to validate answers
+  validate_answers: false
+
+# Generation Settings
+generation:
+  # Strategy for initial card generation: definition, summary, qa, mixed
+  strategy: mixed
+  
+  # Maximum cards per chapter
+  max_cards_per_chapter: 20
+  
+  # Use LLM to generate additional cards beyond automated extraction
+  llm_generation: true
+  
+  # Number of LLM-generated cards per text chunk
+  llm_cards_per_chunk: 2
